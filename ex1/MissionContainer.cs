@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 using Delegates;
 
 namespace Excercise_1 {
-	public class FunctionsContainer {
+    //this class contains an indexer that receives name of a function and returns an appropriate action f:R->R
+    public class FunctionsContainer {
 		
 		private Dictionary<string, funcPtr> dictionary;
 		
@@ -15,6 +16,7 @@ namespace Excercise_1 {
             dictionary = new Dictionary<string, funcPtr>();
 		}
 		
+        //operator [] of the indexer
 		public funcPtr this[string key] {
 	         get {
                 //if the key does not exist
@@ -36,8 +38,9 @@ namespace Excercise_1 {
 	         }
       	}
 		
+        //returns a list of all the functions in the container
 		public List<string> getAllMissions() {
-            //return a list of all the keys in the dictionary
+            //make a list of all the keys in the dictionary
 			List<string> missions = new List<string>();
 			foreach (string funcName in dictionary.Keys) {
 				missions.Add(funcName);

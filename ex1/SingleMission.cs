@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Delegates;
 
 namespace Excercise_1 {
+    //this class stores one of the functions in the function container
     public class SingleMission : IMission {
         public event EventHandler<double> OnCalculate;
         private String name;
@@ -22,6 +23,7 @@ namespace Excercise_1 {
         public String Name { get { return name; } }
         public String Type { get { return type; } }
 
+        //receives value and returns result
         public double Calculate(double value) {
             //compute result
 			double result = operation(value);

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Delegates;
 
 namespace Excercise_1 {
+    //this class stores a concatenation of functions stored in the function container
     public class ComposedMission : IMission {
         public event EventHandler<double> OnCalculate;
         private String name;
@@ -22,13 +23,14 @@ namespace Excercise_1 {
         public String Name { get { return name; } }
         public String Type { get { return type; } }
 
+        //adds new function to the list of concatenated functions
         public ComposedMission Add(funcPtr operation) {
-            //add new function to the list of concatenated functions
 			operations.Add(operation);
             return this;
 		}
-		
-		public double Calculate(double value) {
+
+        //receives value and returns result
+        public double Calculate(double value) {
             //compute result by concatenating all the functions in the list
             double result = value;
 			foreach (funcPtr func in operations) {
